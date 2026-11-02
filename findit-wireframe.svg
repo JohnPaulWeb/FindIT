@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="920" viewBox="0 0 1280 920">
+  <style>
+    text{fill:#111!important;stroke:none!important}.canvas{fill:#f0f0f0}.frame{fill:#fff;stroke:#222;stroke-width:3}.bar{fill:#f7f7f7;stroke:#222;stroke-width:2}.line{fill:none;stroke:#555;stroke-width:2.5}.fill{fill:#e8e8e8}.green{fill:#d7d7d7}.ink{fill:#111!important}.muted{fill:#222!important}.accent{fill:#111!important}.title{font:700 26px Arial,sans-serif}.head{font:700 18px Arial,sans-serif}.sub{font:700 13px Arial,sans-serif}.body{font:13px Arial,sans-serif}.small{font:11px Arial,sans-serif}.label{font:700 10px Arial,sans-serif;letter-spacing:1.3px}.tiny{font:700 9px Arial,sans-serif;letter-spacing:.8px}
+  </style>
+  <rect width="1280" height="920" class="canvas"/>
+
+  <!-- Desktop frame: 850 x 760 -->
+  <rect x="40" y="40" width="850" height="760" rx="8" class="frame"/>
+  <rect x="40" y="40" width="850" height="58" rx="8" class="bar"/>
+  <rect x="65" y="55" width="28" height="28" rx="6" class="accent"/>
+  <text x="79" y="75" text-anchor="middle" class="sub" fill="#fff">F</text>
+  <text x="104" y="75" class="head ink">Find<tspan class="accent">IT</tspan></text>
+  <text x="730" y="73" class="small muted">CAMPUS COMMUNITY BOARD</text>
+
+  <text x="65" y="135" class="label muted">LOST &amp; FOUND / EDP WEEK 1</text>
+  <text x="65" y="169" class="title ink">Find what matters.</text>
+  <text x="65" y="198" class="title accent">Return what's found.</text>
+  <text x="65" y="226" class="body muted">A simple place to report lost items and help them find their way home.</text>
+  <line x1="690" y1="135" x2="690" y2="205" class="line"/>
+  <text x="715" y="170" class="title accent">03</text>
+  <text x="715" y="190" class="tiny muted">OPEN POSTS</text>
+
+  <!-- Main two-column grid -->
+  <rect x="65" y="260" width="255" height="420" rx="7" class="frame"/>
+  <text x="84" y="289" class="label muted">01 / POST AN ITEM</text>
+  <text x="84" y="316" class="head ink">Create a post</text>
+  <text x="84" y="350" class="small muted">This item was...</text>
+  <rect x="84" y="357" width="217" height="31" rx="4" class="line"/>
+  <text x="95" y="377" class="body ink">Lost</text><text x="288" y="377" class="body muted">⌄</text>
+  <text x="84" y="415" class="small muted">Item name</text>
+  <rect x="84" y="422" width="217" height="31" rx="4" class="line"/>
+  <text x="95" y="442" class="small muted">e.g. Black leather wallet</text>
+  <text x="84" y="480" class="small muted">Description</text>
+  <rect x="84" y="487" width="217" height="42" rx="4" class="line"/>
+  <text x="95" y="512" class="small muted">Color, brand, details...</text>
+  <text x="84" y="556" class="small muted">Location</text>
+  <rect x="84" y="563" width="102" height="31" rx="4" class="line"/>
+  <text x="198" y="556" class="small muted">Date</text>
+  <rect x="198" y="563" width="103" height="31" rx="4" class="line"/>
+  <text x="84" y="622" class="small muted">Contact information</text>
+  <rect x="84" y="629" width="217" height="31" rx="4" class="line"/>
+
+  <text x="350" y="289" class="label muted">02 / COMMUNITY BOARD</text>
+  <text x="350" y="316" class="head ink">Recent reports</text>
+  <rect x="750" y="299" width="110" height="22" rx="3" class="green"/>
+  <text x="805" y="314" text-anchor="middle" class="tiny accent">LIVE BOARD</text>
+
+  <rect x="350" y="337" width="510" height="45" rx="6" class="frame"/>
+  <rect x="360" y="345" width="214" height="29" rx="4" class="fill"/>
+  <text x="372" y="364" class="small muted">⌕  Search item or location...</text>
+  <rect x="583" y="345" width="83" height="29" rx="4" class="line"/><text x="595" y="364" class="small muted">All types</text>
+  <rect x="675" y="345" width="83" height="29" rx="4" class="line"/><text x="687" y="364" class="small muted">All status</text>
+  <rect x="767" y="345" width="83" height="29" rx="4" class="line"/><text x="779" y="364" class="small muted">Newest</text>
+
+  <!-- Card 1 -->
+  <rect x="350" y="397" width="510" height="113" rx="6" class="frame"/>
+  <rect x="368" y="414" width="48" height="19" rx="3" fill="#f3dfd3"/><text x="392" y="427" text-anchor="middle" class="tiny" fill="#995126">LOST</text>
+  <text x="780" y="427" class="small muted">Nov 3, 2026</text>
+  <text x="368" y="456" class="sub ink">Black leather wallet</text>
+  <text x="368" y="476" class="small muted">Slim wallet with a student ID inside.</text>
+  <text x="368" y="497" class="small muted">⌖ Main Library</text><text x="480" y="497" class="small muted">✉ 09XXXXXXXXX</text>
+
+  <!-- Card 2 -->
+  <rect x="350" y="523" width="510" height="113" rx="6" class="frame"/>
+  <rect x="368" y="540" width="56" height="19" rx="3" fill="#dce8f6"/><text x="396" y="553" text-anchor="middle" class="tiny" fill="#365a8a">FOUND</text>
+  <text x="780" y="553" class="small muted">Nov 2, 2026</text>
+  <text x="368" y="582" class="sub ink">Blue umbrella</text>
+  <text x="368" y="602" class="small muted">Foldable umbrella with a wooden handle.</text>
+  <text x="368" y="623" class="small muted">⌖ Student Cafeteria</text><text x="505" y="623" class="small muted">✉ student@email.com</text>
+
+  <!-- Footer workflow -->
+  <line x1="65" y1="710" x2="865" y2="710" class="line"/>
+  <text x="65" y="735" class="label muted">03 / HOW IT WORKS</text>
+  <text x="65" y="765" class="sub ink">01 Post</text><text x="235" y="765" class="sub ink">02 Search</text><text x="420" y="765" class="sub ink">03 Resolve</text>
+  <text x="590" y="765" class="small muted">Share details → find a match → return the item</text>
+
+  <!-- Mobile frame -->
+  <rect x="950" y="40" width="290" height="760" rx="20" class="frame"/>
+  <rect x="1042" y="51" width="106" height="5" rx="3" fill="#9aa59d"/>
+  <text x="975" y="94" class="head ink">Find<tspan class="accent">IT</tspan></text>
+  <text x="975" y="126" class="label muted">LOST &amp; FOUND</text>
+  <text x="975" y="158" class="title ink">Find what matters.</text>
+  <text x="975" y="184" class="title accent">Return what's found.</text>
+
+  <rect x="975" y="210" width="240" height="267" rx="7" class="frame"/>
+  <text x="991" y="237" class="label muted">01 / POST AN ITEM</text>
+  <text x="991" y="263" class="head ink">Create a post</text>
+  <text x="991" y="291" class="small muted">This item was...</text><rect x="991" y="298" width="208" height="28" rx="4" class="line"/>
+  <text x="991" y="350" class="small muted">Item name</text><rect x="991" y="357" width="208" height="28" rx="4" class="line"/>
+  <text x="991" y="409" class="small muted">Description</text><rect x="991" y="416" width="208" height="28" rx="4" class="line"/>
+  <rect x="991" y="452" width="208" height="13" rx="3" class="green"/>
+
+  <text x="975" y="512" class="label muted">02 / COMMUNITY BOARD</text>
+  <rect x="975" y="530" width="240" height="38" rx="6" class="frame"/><text x="987" y="554" class="small muted">⌕  Search item or location...</text>
+  <rect x="975" y="580" width="240" height="108" rx="6" class="frame"/>
+  <rect x="991" y="596" width="48" height="18" rx="3" fill="#f3dfd3"/><text x="1015" y="609" text-anchor="middle" class="tiny" fill="#995126">LOST</text>
+  <text x="991" y="637" class="sub ink">Black leather wallet</text><text x="991" y="658" class="small muted">Main Library</text><text x="991" y="678" class="tiny accent">MARK RESOLVED</text>
+  <line x1="975" y1="715" x2="1215" y2="715" class="line"/>
+  <text x="975" y="741" class="label muted">03 / HOW IT WORKS</text><text x="975" y="768" class="sub ink">Post → Search → Resolve</text>
+
+  <text x="40" y="850" class="label muted">FIGMA WIREFRAME / FIXED GRID VERSION</text>
+  <text x="40" y="875" class="small muted">Desktop: 850 × 760 px  •  Mobile: 290 × 760 px  •  Import the SVG, then Ungroup in Figma.</text>
+</svg>

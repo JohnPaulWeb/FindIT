@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FindIT | Wireframe Steps</title>
+  <link rel="stylesheet" href="wireframe-steps.css">
+</head>
+<body>
+  <header class="guide-header">
+    <div>
+      <p class="eyebrow">FINDIT / WEEK 1 PLANNING AND DESIGN</p>
+      <h1>Wireframe walkthrough</h1>
+      <p class="intro">Use each numbered frame as a separate screenshot for your project documentation.</p>
+    </div>
+    <button class="print-button" onclick="window.print()">Print / Save PDF</button>
+  </header>
+
+  <main class="guide">
+    <section class="frame-section">
+      <div class="frame-label"><span>1.1</span><div><h2>Home / Empty board</h2><p>Users first see the FindIT introduction and the form for posting an item.</p></div></div>
+      <div class="mockup desktop">
+        <div class="mock-header"><b><i>F</i> Find<span>IT</span></b><small>● CAMPUS COMMUNITY BOARD</small></div>
+        <div class="mock-hero"><div><label>LOST &amp; FOUND / EDP WEEK 1</label><h3>Find what matters.<br><em>Return what’s found.</em></h3><p>A simple place to report lost items and help them find their way home.</p></div><div class="counter"><strong>0</strong><small>open posts<br>on the board</small></div></div>
+        <div class="mock-columns"><div class="form-box"><label>01 / POST AN ITEM</label><h4>Create a post</h4><Field name="This item was..." value="Lost"/><Field name="Item name" value="e.g. Black leather wallet"/><Field name="Description" value="Color, brand, distinguishing details..."/><div class="two"><Field name="Location" value="e.g. Main Library"/><Field name="Date" value="mm/dd/yyyy"/></div><Field name="Contact information" value="Email, phone, or social handle"/><button>Publish post →</button></div><div class="board-box"><label>02 / COMMUNITY BOARD</label><h4>Recent reports <sup>0</sup></h4><div class="search">⌕ &nbsp; Search item or location...</div><div class="filters"><span>All types</span><span>All status</span><span>Newest first</span></div><div class="empty">No posts yet<br><small>Publish an item to see it on the board.</small></div></div></div>
+      </div>
+    </section>
+
+    <section class="frame-section">
+      <div class="frame-label"><span>1.2</span><div><h2>Creating a Lost post</h2><p>The user fills in the required item information before publishing.</p></div></div>
+      <div class="mockup desktop">
+        <div class="mock-header"><b><i>F</i> Find<span>IT</span></b><small>● CAMPUS COMMUNITY BOARD</small></div>
+        <div class="mock-columns single-state"><div class="form-box active"><label>01 / POST AN ITEM</label><h4>Create a post</h4><Field name="This item was..." value="Lost"/><Field name="Item name" value="Black leather wallet"/><Field name="Description" value="Slim wallet with a student ID inside."/><div class="two"><Field name="Location" value="Main Library"/><Field name="Date" value="11/03/2026"/></div><Field name="Contact information" value="09XXXXXXXXX"/><button>Publish post →</button></div><div class="board-box"><label>02 / COMMUNITY BOARD</label><h4>Recent reports <sup>0</sup></h4><div class="search">⌕ &nbsp; Search item or location...</div><div class="filters"><span>All types</span><span>All status</span><span>Newest first</span></div><div class="empty">No posts yet<br><small>Publish an item to see it on the board.</small></div></div></div>
+      </div>
+    </section>
+
+    <section class="frame-section">
+      <div class="frame-label"><span>1.3</span><div><h2>Published post on the board</h2><p>After submission, the new report appears without reloading the page.</p></div></div>
+      <div class="mockup desktop">
+        <div class="mock-header"><b><i>F</i> Find<span>IT</span></b><small>● CAMPUS COMMUNITY BOARD</small></div>
+        <div class="mock-columns single-state"><div class="form-box"><label>01 / POST AN ITEM</label><h4>Create a post</h4><Field name="This item was..." value="Lost"/><Field name="Item name" value=""/><Field name="Description" value=""/><div class="two"><Field name="Location" value=""/><Field name="Date" value=""/></div><Field name="Contact information" value=""/><button>Publish post →</button></div><div class="board-box"><label>02 / COMMUNITY BOARD <mark>LIVE BOARD</mark></label><h4>Recent reports <sup>1</sup></h4><div class="search">⌕ &nbsp; Search item or location...</div><div class="filters"><span>All types</span><span>All status</span><span>Newest first</span></div><Post type="LOST" title="Black leather wallet" desc="Slim wallet with a student ID inside." meta="⌖ Main Library     ✉ 09XXXXXXXXX"/></div></div>
+      </div>
+    </section>
+
+    <section class="frame-section">
+      <div class="frame-label"><span>1.4</span><div><h2>Search and filter results</h2><p>The user searches for a keyword and narrows the board using filters.</p></div></div>
+      <div class="mockup desktop">
+        <div class="mock-header"><b><i>F</i> Find<span>IT</span></b><small>● CAMPUS COMMUNITY BOARD</small></div>
+        <div class="board-full"><label>02 / COMMUNITY BOARD</label><h4>Recent reports <sup>2</sup></h4><div class="search filled">⌕ &nbsp; wallet</div><div class="filters"><span>All types</span><span>Open only</span><span>Newest first</span></div><div class="post-row"><Post type="LOST" title="Black leather wallet" desc="Slim wallet with a student ID inside." meta="⌖ Main Library     ✉ 09XXXXXXXXX"/><Post type="FOUND" title="Brown wallet" desc="Found near the science building." meta="⌖ Science Building     ✉ student@email.com"/></div></div>
+      </div>
+    </section>
+
+    <section class="frame-section">
+      <div class="frame-label"><span>1.5</span><div><h2>Edit or resolve a post</h2><p>The owner can edit details, delete a post, or mark it resolved after the item is returned.</p></div></div>
+      <div class="mockup desktop">
+        <div class="mock-header"><b><i>F</i> Find<span>IT</span></b><small>● CAMPUS COMMUNITY BOARD</small></div>
+        <div class="board-full"><label>02 / COMMUNITY BOARD</label><h4>Recent reports <sup>1</sup></h4><div class="search">⌕ &nbsp; Search item or location...</div><div class="filters"><span>All types</span><span>All status</span><span>Newest first</span></div><div class="post-row"><div class="post large"><div class="post-head"><b class="lost">LOST</b><small>Nov 3, 2026</small></div><h5>Black leather wallet</h5><p>Slim wallet with a student ID inside.</p><p class="meta">⌖ Main Library &nbsp;&nbsp; ✉ 09XXXXXXXXX</p><div class="actions"><b>MARK RESOLVED</b><b>EDIT</b><b class="danger">DELETE</b></div></div></div></div>
+      </div>
+    </section>
+
+    <section class="frame-section">
+      <div class="frame-label"><span>1.6</span><div><h2>Resolved post</h2><p>Resolved items stay visible for record keeping and appear visually dimmed.</p></div></div>
+      <div class="mockup desktop">
+        <div class="mock-header"><b><i>F</i> Find<span>IT</span></b><small>● CAMPUS COMMUNITY BOARD</small></div>
+        <div class="board-full"><label>02 / COMMUNITY BOARD</label><h4>Recent reports <sup>1</sup></h4><div class="search">⌕ &nbsp; Search item or location...</div><div class="filters"><span>All types</span><span>Resolved only</span><span>Newest first</span></div><div class="post-row"><div class="post large resolved"><div class="post-head"><b class="lost">LOST</b><small>Nov 3, 2026 · Resolved</small></div><h5>Black leather wallet</h5><p>Slim wallet with a student ID inside.</p><p class="meta">⌖ Main Library &nbsp;&nbsp; ✉ 09XXXXXXXXX</p><div class="actions"><b>EDIT</b><b class="danger">DELETE</b></div></div></div></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function Field(element) {
+      const name = element.getAttribute("name");
+      const value = element.getAttribute("value");
+      return `<div class="field"><small>${name}</small><div class="input">${value || "&nbsp;"}</div></div>`;
+    }
+    function Post(element) {
+      const type = element.getAttribute("type");
+      const title = element.getAttribute("title");
+      const desc = element.getAttribute("desc");
+      const meta = element.getAttribute("meta");
+      return `<div class="post"><div class="post-head"><b class="${type.toLowerCase()}">${type}</b><small>Nov 3, 2026</small></div><h5>${title}</h5><p>${desc}</p><p class="meta">${meta}</p><div class="actions"><b>MARK RESOLVED</b><b>EDIT</b><b class="danger">DELETE</b></div></div>`;
+    }
+    document.querySelectorAll("Field").forEach((el) => { el.outerHTML = Field(el); });
+    document.querySelectorAll("Post").forEach((el) => { el.outerHTML = Post(el); });
+  </script>
+</body>
+</html>
