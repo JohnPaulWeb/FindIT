@@ -13,7 +13,7 @@
 <body>
   <header class="site-header">
     <div class="container header-content">
-      <a class="brand" href="#" aria-label="FindIT home">
+      <a class="brand" href="#top" aria-label="FindIT home">
         <span class="brand-mark">F</span>
         <span>Find<span class="brand-accent">IT</span></span>
       </a>
@@ -24,23 +24,49 @@
     </div>
   </header>
 
-  <main class="container">
+  <main id="top" class="container">
     <section class="hero">
       <div>
-        <p class="eyebrow">LOST &amp; FOUND / EDP WEEK 1</p>
+        <p class="eyebrow">LOST SOMETHING? FOUND SOMETHING?</p>
         <h1>Find what matters.<br><em>Return what’s found.</em></h1>
         <p class="hero-copy">A simple, organized place for our campus community to report lost items and help them find their way home.</p>
+        <div class="hero-actions">
+          <a class="hero-button hero-button-primary" href="#post-item">Browse the board <span>→</span></a>
+          <a class="hero-button hero-button-secondary" href="#community-board">Post an item </a>
+        </div>
       </div>
-      <div class="hero-count">
-        <strong id="openCount">0</strong>
-        <span>open posts<br>on the board</span>
+      <div class="hero-side">
+        <div class="hero-count">
+          <strong id="openCount">0</strong>
+          <span>OPEN POSTS<br>ON THE BOARD</span>
+        </div>
+        <a class="scroll-hint" href="#post-item"><span>↓</span> Start here</a>
       </div>
+    </section>
+
+    <section class="summary-grid" aria-label="Board summary">
+      <article class="summary-card">
+        <strong id="totalCount">0</strong>
+        <span>Total Posts</span>
+      </article>
+      <article class="summary-card">
+        <strong id="openLostCount">0</strong>
+        <span>Open Lost</span>
+      </article>
+      <article class="summary-card">
+        <strong id="openFoundCount">0</strong>
+        <span>Open Found</span>
+      </article>
+      <article class="summary-card">
+        <strong id="resolvedCount">0</strong>
+        <span>Resolved</span>
+      </article>
     </section>
 
     <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
 
     <section class="workspace" aria-label="FindIT wireframe layout">
-      <aside class="panel form-panel">
+      <aside id="post-item" class="panel form-panel">
         <div class="panel-heading">
           <div>
             <p class="section-kicker">01 / POST AN ITEM</p>
@@ -76,18 +102,18 @@
             </div>
           </div>
           <div class="field">
-            <label for="contact">Contact information</label>
+            <label for="contact">Contact information <span class="field-hint">(must be unique)</span></label>
             <input id="contact" type="text" maxlength="100" placeholder="Email, phone, or social handle" required>
           </div>
           <div class="form-actions">
-            <button class="button button-primary" type="submit"><span id="submitText">Publish post</span><span>→</span></button>
+            <button class="button button-primary" type="submit"><span id="submitText">Publish This Post</span></button>
             <button class="button button-quiet hidden" id="cancelEdit" type="button">Cancel edit</button>
           </div>
         </form>
         <p class="form-footnote">Be specific and keep your contact information up to date.</p>
       </aside>
 
-      <section class="board">
+      <section id="community-board" class="board">
         <div class="board-heading">
           <div>
             <p class="section-kicker">02 / COMMUNITY BOARD</p>
@@ -137,9 +163,26 @@
     </section>
   </main>
 
+  <div id="deleteDialog" class="modal-backdrop hidden" role="presentation">
+    <section class="delete-dialog" role="dialog" aria-modal="true" aria-labelledby="deleteDialogTitle" aria-describedby="deleteDialogMessage">
+      <div class="delete-dialog-heading">
+        <h2 id="deleteDialogTitle">Delete confirmation</h2>
+        <span>!</span>
+      </div>
+      <div class="delete-dialog-body">
+        <h3 id="deleteDialogQuestion">Delete this post?</h3>
+        <p id="deleteDialogMessage">This action cannot be undone.</p>
+        <div class="delete-dialog-actions">
+          <button id="cancelDelete" class="dialog-button dialog-button-cancel" type="button">Cancel</button>
+          <button id="confirmDelete" class="dialog-button dialog-button-delete" type="button">Delete</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <footer class="site-footer">
     <div class="container"><span>FINDIT / CAMPUS BULLETIN BOARD</span><span>Built for the EDP Week 1 project</span></div>
   </footer>
-  <script src="app.js"></script>
+  <script src="app2.js"></script>
 </body>
 </html>
