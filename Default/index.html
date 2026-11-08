@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FindIT campus lost and found bulletin board">
+  <title>FindIT | Campus Lost and Found</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../app.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#top" aria-label="FindIT home">
+        <span class="brand-mark">F</span>
+        <span>Find<span class="brand-accent">IT</span></span>
+      </a>
+      <div class="header-note">
+        <span class="status-dot"></span>
+        Campus community board
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">LOST SOMETHING? FOUND SOMETHING?</p>
+        <h1>Find what matters.<br><em>Return what’s found.</em></h1>
+        <p class="hero-copy">A simple, organized place for our campus community to report lost items and help them find their way home.</p>
+        <div class="hero-actions">
+          <a class="hero-button hero-button-primary" href="#community-board">Browse the board <span>→</span></a>
+          <a class="hero-button hero-button-secondary" href="#post-item">Post an item</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="hero-count">
+          <strong id="openCount">0</strong>
+          <span>OPEN POSTS<br>ON THE BOARD</span>
+        </div>
+        <a class="scroll-hint" href="#post-item"><span>↓</span> Start here</a>
+      </div>
+    </section>
+
+    <section class="summary-grid" aria-label="Board summary">
+      <article class="summary-card">
+        <strong id="totalCount">0</strong>
+        <span>Total Posts</span>
+      </article>
+      <article class="summary-card">
+        <strong id="openLostCount">0</strong>
+        <span>Open Lost</span>
+      </article>
+      <article class="summary-card">
+        <strong id="openFoundCount">0</strong>
+        <span>Open Found</span>
+      </article>
+      <article class="summary-card">
+        <strong id="resolvedCount">0</strong>
+        <span>Resolved</span>
+      </article>
+    </section>
+
+    <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+    <section class="workspace" aria-label="Post and community board">
+      <aside id="post-item" class="panel form-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">01 / POST AN ITEM</p>
+            <h2 id="formTitle">Create a post</h2>
+          </div>
+          <span class="heading-icon">+</span>
+        </div>
+        <form id="postForm" novalidate>
+          <input type="hidden" id="postId">
+          <div class="field">
+            <label for="type">This item was...</label>
+            <select id="type" required>
+              <option value="Lost">Lost</option>
+              <option value="Found">Found</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="item">Item name</label>
+            <input id="item" type="text" maxlength="60" placeholder="e.g. Black leather wallet" required>
+          </div>
+          <div class="field">
+            <label for="description">Description</label>
+            <textarea id="description" maxlength="240" rows="3" placeholder="Color, brand, distinguishing details..." required></textarea>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="location">Location</label>
+              <input id="location" type="text" maxlength="80" placeholder="e.g. Main Library" required>
+            </div>
+            <div class="field">
+              <label for="date">Date</label>
+              <input id="date" type="date" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="contact">Contact information <span class="field-hint">(must be unique)</span></label>
+            <input id="contact" type="text" maxlength="100" placeholder="Email, phone, or social handle" required>
+          </div>
+          <div class="form-actions">
+            <button class="button button-primary" type="submit"><span id="submitText">Publish This Post</span></button>
+            <button class="button button-quiet hidden" id="cancelEdit" type="button">Cancel edit</button>
+          </div>
+        </form>
+        <p class="form-footnote">Be specific and keep your contact information up to date.</p>
+      </aside>
+
+      <section id="community-board" class="board">
+        <div class="board-heading">
+          <div>
+            <p class="section-kicker">02 / COMMUNITY BOARD</p>
+            <h2>Recent reports <span id="resultCount" class="result-count">0</span></h2>
+          </div>
+          <span class="board-label">COMMUNITY BOARD</span>
+        </div>
+
+        <div class="controls panel">
+          <div class="search-wrap">
+            <span class="search-icon">⌕</span>
+            <label class="sr-only" for="search">Search posts</label>
+            <input id="search" type="search" placeholder="Search item or location...">
+          </div>
+          <div class="control-selects">
+            <label class="sr-only" for="typeFilter">Filter by type</label>
+            <select id="typeFilter">
+              <option value="All">All types</option>
+              <option value="Lost">Lost only</option>
+              <option value="Found">Found only</option>
+            </select>
+            <label class="sr-only" for="statusFilter">Filter by status</label>
+            <select id="statusFilter">
+              <option value="All">All status</option>
+              <option value="Open">Open only</option>
+              <option value="Resolved">Resolved only</option>
+            </select>
+            <label class="sr-only" for="sort">Sort posts</label>
+            <select id="sort">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="postList" class="post-list"></div>
+      </section>
+    </section>
+
+    <section class="how-it-works">
+      <p class="section-kicker">03 / HOW IT WORKS</p>
+      <div class="steps">
+        <div class="step"><span>01</span><strong>Post</strong><p>Share the details of an item you lost or found.</p></div>
+        <div class="step"><span>02</span><strong>Search</strong><p>Browse the board or filter by type and status.</p></div>
+        <div class="step"><span>03</span><strong>Resolve</strong><p>Connect, return the item, and close the post.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="deleteDialog" class="modal-backdrop hidden" role="presentation">
+    <section class="delete-dialog" role="dialog" aria-modal="true" aria-labelledby="deleteDialogTitle" aria-describedby="deleteDialogMessage">
+      <div class="delete-dialog-heading">
+        <h2 id="deleteDialogTitle">Delete confirmation</h2>
+        <span>!</span>
+      </div>
+      <div class="delete-dialog-body">
+        <h3 id="deleteDialogQuestion">Delete this post?</h3>
+        <p id="deleteDialogMessage">This action cannot be undone.</p>
+        <div class="delete-dialog-actions">
+          <button id="cancelDelete" class="dialog-button dialog-button-cancel" type="button">Cancel</button>
+          <button id="confirmDelete" class="dialog-button dialog-button-delete" type="button">Delete</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container"><span>FINDIT / CAMPUS BULLETIN BOARD</span><span>Helping campus items find their way home</span></div>
+  </footer>
+  <script src="app2.js"></script>
+</body>
+</html>

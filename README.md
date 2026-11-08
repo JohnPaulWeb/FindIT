@@ -4,7 +4,7 @@ FindIT is a browser-based lost and found bulletin board for the campus community
 
 ## Run the project
 
-Open `index.html` in a modern browser. No server, database, or installation is required.
+Open `Default/index.html` in a modern browser. No server, database, or installation is required.
 
 ## Included wireframe
 
