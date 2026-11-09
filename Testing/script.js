@@ -3,6 +3,10 @@ const STORAGE_KEY = "findit-posts";
 const elements = {
   form: document.querySelector("#postForm"),
   postId: document.querySelector("#postId"),
+  itemImage: document.querySelector("#itemImage"),
+  imagePreview: document.querySelector("#imagePreview"),
+  imagePreviewPhoto: document.querySelector("#imagePreviewPhoto"),
+  removeImage: document.querySelector("#removeImage"),
   type: document.querySelector("#type"),
   item: document.querySelector("#item"),
   description: document.querySelector("#description"),
@@ -35,6 +39,10 @@ const elements = {
 let posts = loadPosts();
 let pendingDeleteId = "";
 let pendingPublish = false;
+let selectedImageData = "";
+
+const MAX_IMAGE_SIZE = 1024 * 1024;
+const ALLOWED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp"];
 
 function loadPosts() {
   try {
@@ -65,12 +73,61 @@ function showFeedback(message, isError = false) {
 
 function resetForm() {
   elements.form.reset();
+  setImagePreview("");
   elements.postId.value = "";
   elements.type.value = "Lost";
   elements.submitText.textContent = "Publish This Post";
   elements.formTitle.textContent = "Create a post";
   elements.cancelEdit.classList.add("hidden");
 }
+
+function setImagePreview(imageData) {
+  selectedImageData = imageData;
+  elements.imagePreviewPhoto.src = imageData;
+  elements.imagePreview.classList.toggle("hidden", !imageData);
+}
+
+elements.itemImage.addEventListener("change", () => {
+  const [file] = elements.itemImage.files;
+  if (!file) return;
+  if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
+    elements.itemImage.value = "";
+    showFeedback("Choose a JPEG, PNG, or WebP image.", true);
+    return;
+  }
+  if (file.size > MAX_IMAGE_SIZE) {
+    elements.itemImage.value = "";
+    showFeedback("The item photo must be 1 MB or smaller.", true);
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    if (elements.itemImage.files[0] !== file) return;
+    if (typeof reader.result !== "string") {
+      showFeedback("The item photo could not be read.", true);
+      return;
+    }
+    const image = new Image();
+    image.addEventListener("load", () => setImagePreview(reader.result), { once: true });
+    image.addEventListener("error", () => {
+      elements.itemImage.value = "";
+      showFeedback("Choose a valid image file.", true);
+    }, { once: true });
+    image.src = reader.result;
+  }, { once: true });
+  reader.addEventListener("error", () => {
+    if (elements.itemImage.files[0] !== file) return;
+    elements.itemImage.value = "";
+    showFeedback("The item photo could not be read.", true);
+  }, { once: true });
+  reader.readAsDataURL(file);
+});
+
+elements.removeImage.addEventListener("click", () => {
+  elements.itemImage.value = "";
+  setImagePreview("");
+});
 
 function validateForm() {
   const fields = [elements.item, elements.description, elements.location, elements.date, elements.contact];
@@ -138,6 +195,7 @@ function postTemplate(post) {
         <span class="tag ${post.type.toLowerCase()}">${post.type.toUpperCase()}</span>
         <span class="post-status">${post.status.toUpperCase()}</span>
       </div>
+      ${post.image ? `<img class="post-image" src="${escapeHtml(post.image)}" alt="Photo of ${escapeHtml(post.item)}" loading="lazy">` : ""}
       <h3>${escapeHtml(post.item)}</h3>
       <p>${escapeHtml(post.description)}</p>
       <div class="post-meta">
@@ -176,7 +234,8 @@ function saveFormPost() {
     description: elements.description.value.trim(),
     location: elements.location.value.trim(),
     date: elements.date.value,
-    contact: elements.contact.value.trim()
+    contact: elements.contact.value.trim(),
+    image: selectedImageData
   };
   if (elements.postId.value) {
     const post = posts.find((entry) => entry.id === elements.postId.value);
@@ -266,6 +325,7 @@ elements.postList.addEventListener("click", (event) => {
     elements.location.value = post.location;
     elements.date.value = post.date;
     elements.contact.value = post.contact;
+    setImagePreview(post.image || "");
     elements.submitText.textContent = "Save changes";
     elements.formTitle.textContent = "Edit your post";
     elements.cancelEdit.classList.remove("hidden");

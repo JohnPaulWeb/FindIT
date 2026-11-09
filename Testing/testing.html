@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../app.css">
+  <link rel="stylesheet" href="testing.css">
 </head>
 <body>
   <header class="site-header">
@@ -17,6 +18,10 @@
         <span class="brand-mark">F</span>
         <span>Find<span class="brand-accent">IT</span></span>
       </a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a class="active" href="#top" aria-current="page">Home</a>
+        <a href="#community-board">Board</a>
+      </nav>
       <div class="header-note">
         <span class="status-dot"></span>
         Campus community board
@@ -24,7 +29,7 @@
     </div>
   </header>
 
-  <main id="top" class="container">
+  <main id="top" class="container">   
     <section class="hero">
       <div>
         <p class="eyebrow">LOST SOMETHING? FOUND SOMETHING?</p>
@@ -90,6 +95,14 @@
           <div class="field">
             <label for="description">Description</label>
             <textarea id="description" maxlength="240" rows="3" placeholder="Color, brand, distinguishing details..." required></textarea>
+          </div>
+          <div class="field">
+            <label for="itemImage">Item photo <span class="field-hint">(optional, up to 1 MB)</span></label>
+            <input id="itemImage" class="image-input" type="file" accept="image/jpeg,image/png,image/webp">
+            <div id="imagePreview" class="image-preview hidden">
+              <img id="imagePreviewPhoto" alt="Preview of the selected item photo">
+              <button id="removeImage" class="text-button delete" type="button">Remove photo</button>
+            </div>
           </div>
           <div class="field-row">
             <div class="field">
